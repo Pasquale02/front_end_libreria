@@ -10,11 +10,7 @@ export class AutoreComponent implements OnInit {
   constructor() {
   }
 
-  libri = [
-    {id: 1, nome: 'Manzoni'},
-    {id: 2, nome: 'Alighieri'},
-    {id: 3, nome: 'Pasolini'}
-  ];
+  autori;
 
   // per ngSwitch
   dietSelection = 'gf';
@@ -22,6 +18,27 @@ export class AutoreComponent implements OnInit {
   // dietSelection = 'paleo';
 
   ngOnInit() {
+  }
+
+  loadAutori() {
+    this.autori = [
+      {id: 1, nome: 'Manzoni'},
+      {id: 2, nome: 'Alighieri'},
+      {id: 3, nome: 'Pasolini'}
+    ];
+  }
+
+  aggiungiAutore() {
+    this.autori.push({id: 4, nome: 'Montale'});
+  }
+
+  removeAutore(autore) {
+    const index = this.autori.indexOf(autore);
+    this.autori.splice(index, 1);
+  }
+
+  updateAutore(autore) {
+    autore.nome = 'UPDATED';
   }
 
 }
