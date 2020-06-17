@@ -1,5 +1,14 @@
 
 <h2> Autori</h2>
 <div *ngIf="libri.length > 0; then elencoLibri else noLibri">Lista libri</div>
-<ng-template #elencoLibri>Nessun libro</ng-template>
+<ng-template #elencoLibri>Libri</ng-template>
+<ul>
+  <li *ngFor="let libro of libri">{{ libro.nome }}</li>
+</ul>
 <ng-template #noLibri>Nessun libro</ng-template>
+<div [ngSwitch]="dietSelection">
+  <p *ngSwitchCase="'gf'">Gluten-free</p>
+  <p *ngSwitchCase="'veg'">Vegetarian / Vegan</p>
+  <p *ngSwitchCase="'paleo'">Paleo</p>
+  <p *ngSwitchDefault>Standard diet</p>
+</div>
