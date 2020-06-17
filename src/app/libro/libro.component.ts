@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-libro',
@@ -26,6 +26,9 @@ export class LibroComponent implements OnInit {
   testo = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ' +
     'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, ' +
     'when an unknown printer took a galley of type and scrambled it to make a type specimen book.';
+
+  // proprietà di input
+  @Input() isRed: boolean;
 
   ngOnInit() {
   }
