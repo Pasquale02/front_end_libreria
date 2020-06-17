@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-libro',
@@ -29,6 +29,7 @@ export class LibroComponent implements OnInit {
 
   // proprietà di input
   @Input() isRed: boolean;
+  @Output() greetEvent = new EventEmitter();
 
   ngOnInit() {
   }
@@ -59,5 +60,10 @@ export class LibroComponent implements OnInit {
 
   onTwoWayBinding() {
     console.log('binding due vie: ', this.twoWay);
+  }
+
+  callParentGreet() {
+    alert('saluti');
+    this.greetEvent.emit();
   }
 }

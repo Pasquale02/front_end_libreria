@@ -326,7 +326,7 @@
   </a>
 </div>
 
-<app-libro [isRed]="libroLetto"></app-libro>
+<app-libro [isRed]="libroLetto" (greetEvent)="greet()"></app-libro>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
@@ -335,7 +335,5 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
 
 <router-outlet></router-outlet>
