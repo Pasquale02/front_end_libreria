@@ -28,6 +28,10 @@ export class AutoreComponent implements OnInit {
     ];
   }
 
+  trackAutore(index, autore) {
+    return autore ? autore.id : undefined;
+  }
+
   aggiungiAutore() {
     this.autori.push({id: 4, nome: 'Montale'});
   }

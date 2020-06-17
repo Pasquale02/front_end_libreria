@@ -5,7 +5,7 @@
   <h2> Autori</h2>
   <button (click)="aggiungiAutore()">Aggiungi autore</button>
   <ul>
-    <li *ngFor="let autore of autori">{{ autore.nome }}
+    <li *ngFor="let autore of autori; trackBy: trackAutore">{{ autore.nome }}
       <button (click)="removeAutore(autore)">Remove</button>
       <button (click)="updateAutore(autore)">Update</button>
     </li>
