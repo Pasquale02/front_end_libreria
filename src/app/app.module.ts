@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { LibroComponent } from './libro/libro.component';
 import {FormsModule} from '@angular/forms';
 import {CustomSummaryPipe} from './pipes/customSummary.pipe';
+import {AutoreComponent} from './autore/autore.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LibroComponent,
-    CustomSummaryPipe
+    CustomSummaryPipe,
+    AutoreComponent
   ],
   imports: [
     BrowserModule,

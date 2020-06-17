@@ -1,0 +1,5 @@
+
+<h2> Autori</h2>
+<div *ngIf="libri.length > 0; then elencoLibri else noLibri">Lista libri</div>
+<ng-template #elencoLibri>Nessun libro</ng-template>
+<ng-template #noLibri>Nessun libro</ng-template>
