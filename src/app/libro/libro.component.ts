@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-libro',
@@ -7,22 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LibroComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   libri = ['libro 1', 'libro 2', 'libro 3'];
   isActive = false;
 
   ngOnInit() {
   }
+
   getTitle() {
     return 'Libro';
   }
+
   onDivClicked() {
     console.log('div clicked');
   }
+
   onClick($event) {
     // per stoppare la propagazione
     $event.stopPropagation();
     console.log('cliked button', $event);
+  }
+
+  onKeyUp($event) {
+    // keyCode deprecated, puoi usare $event.key
+    console.log('pressed', $event.key);
+    console.log('pressed target value', $event.target.value);
+  }
+
+  onTextEnter(mail) {
+    console.log(mail);
   }
 }
