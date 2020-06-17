@@ -12,10 +12,12 @@
 <div (click)="onDivClicked()">
   <button (click)="onClick($event)">Save</button>
 </div>
-
 <input (keyup)="onKeyUp($event)" placeholder="evento 1"/>
 <!-- se vuoi gestire il solo evento enter-->
 <input (keyup.enter)="onKeyUp($event)" placeholder="evento enter"/>
 <!-- puoi referenziare anche questo input field-->
 <input #mail (keyup.enter)="onTextEnter(mail.value)" placeholder="variabile template"/>
+<!-- binding two way -->
+Binding due vie:
+<input [(ngModel)]='twoWay' (keyup.enter)="onTwoWayBinding()"/>
 

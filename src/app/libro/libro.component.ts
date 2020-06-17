@@ -12,6 +12,7 @@ export class LibroComponent implements OnInit {
 
   libri = ['libro 1', 'libro 2', 'libro 3'];
   isActive = false;
+  twoWay = 'two way';
 
   ngOnInit() {
   }
@@ -38,5 +39,9 @@ export class LibroComponent implements OnInit {
 
   onTextEnter(mail) {
     console.log(mail);
+  }
+
+  onTwoWayBinding() {
+    console.log('binding due vie: ', this.twoWay);
   }
 }
