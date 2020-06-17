@@ -5,3 +5,12 @@
   </li>
 </ul>
 <button class="btn btn-primary">Save</button>
+<button [class.alert-danger]="isActive">Save</button>
+<button [class.alert-danger]="!isActive">Save</button>
+<button [style.backgroundColor]="!isActive ? 'red' : 'blue'">Save</button>
+<button [style.backgroundColor]="!isActive ? 'red' : 'blue'">Save</button>
+<!-- puoi anche non passare il parametro -->
+<div (click)="onDivClicked()">
+  <button (click)="onClick($event)">Save</button>
+</div>
+
