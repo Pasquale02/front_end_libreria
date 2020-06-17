@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LibroComponent } from './libro/libro.component';
 import {FormsModule} from '@angular/forms';
+import {CustomSummaryPipe} from './pipes/customSummary.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LibroComponent
+    LibroComponent,
+    CustomSummaryPipe
   ],
   imports: [
     BrowserModule,
