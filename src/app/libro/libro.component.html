@@ -21,3 +21,17 @@
 Binding due vie:
 <input [(ngModel)]='twoWay' (keyup.enter)="onTwoWayBinding()"/>
 
+<div>
+  <h2 class="my-3">Pipes</h2>
+  <p>{{libro.titolo | uppercase}}</p>
+  <p>{{libro.pagesNumber | number}}</p>
+  <p>prezzo: {{libro.price | currency:'AUD':false:'3.2-2'}}</p>
+  <p>ratings: {{libro.ratings | number:'1.2-3'}}</p>
+  <p>{{libro.autore}}</p>
+  <p>{{libro.isbn}}</p>
+<!-- per i formati possibili vai su angular datePipe -->
+  <p>{{libro.releaseDate | date: 'shortDate'}}</p>
+</div>
+
+
+

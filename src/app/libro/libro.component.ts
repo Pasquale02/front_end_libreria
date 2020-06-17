@@ -13,6 +13,15 @@ export class LibroComponent implements OnInit {
   libri = ['libro 1', 'libro 2', 'libro 3'];
   isActive = false;
   twoWay = 'two way';
+  libro = {
+    titolo: 'Il mistero della piramide',
+    pagesNumber: 123456,
+    price: 19.29,
+    ratings: 1.235584,
+    autore: 'De amicis',
+    isbn: '2222222222',
+    releaseDate: new Date(2019, 3, 1)
+  };
 
   ngOnInit() {
   }
