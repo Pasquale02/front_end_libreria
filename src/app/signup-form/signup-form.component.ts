@@ -33,4 +33,14 @@ export class SignupFormComponent {
   get password() {
     return this.userForm.get('password');
   }
+
+  login() {
+    // let isValid = authService.login(this.form.value);
+    let isValid = true;
+    if (isValid) {
+      this.userForm.setErrors({
+        invalidLogin: true
+      });
+    }
+  }
 }
