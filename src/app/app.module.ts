@@ -7,13 +7,15 @@ import { LibroComponent } from './libro/libro.component';
 import {FormsModule} from '@angular/forms';
 import {CustomSummaryPipe} from './pipes/customSummary.pipe';
 import {AutoreComponent} from './autore/autore.component';
+import { InputFormatDirective } from './directives/input-format.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     LibroComponent,
     CustomSummaryPipe,
-    AutoreComponent
+    AutoreComponent,
+    InputFormatDirective
   ],
   imports: [
     BrowserModule,
