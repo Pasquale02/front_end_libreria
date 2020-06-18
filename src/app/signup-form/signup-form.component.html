@@ -1,17 +1,29 @@
-<form>
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input 
-            id="username" 
-            type="text" 
-            class="form-control">
+<form [formGroup]="userForm" class="mt-4">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      formControlName="username"
+      id="username"
+      type="text"
+      class="form-control">
+    <!-- il metodo get ha accesso a tutti gli oggetto formControl-->
+    <div *ngIf="userForm.get('username').touched && userForm.get('username').invalid" class="alert alert-danger">
+      Username obbligatorio
     </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input 
-            id="password" 
-            type="text" 
-            class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      formControlName="password"
+      id="password"
+      #username
+      type="text"
+      class="form-control">
+    <!--    posso definire un metodo per rendere la validazione meno verbosa-->
+    <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+      <div *ngIf="password.errors.required">Password obbligatoria</div>
+      <div *ngIf="password.errors.minlength">Minimo {{password.errors.minlength.requiredLength}} caratteri</div>
     </div>
-    <button class="btn btn-primary" type="submit">Sign Up</button>
+  </div>
+  <button class="btn btn-primary" type="submit">Sign Up</button>
 </form>
