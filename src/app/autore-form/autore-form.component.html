@@ -1,5 +1,5 @@
 <h2>Inserimento autore</h2>
-<form>
+<form #formAutore=ngForm (ngSubmit)="submit(formAutore)">
   <div class="form-group">
     <label for="nomeAutore">Nome</label>
     <!-- validazione template driven -->

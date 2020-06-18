@@ -17,4 +17,8 @@ export class AutoreFormComponent implements OnInit {
     console.log('autore: ', nomeAutore);
   }
 
+  submit(form) {
+    console.log('total form = ', form);
+    console.log('value form = ', form.value);
+  }
 }
