@@ -11,6 +11,7 @@ import { InputFormatDirective } from './directives/input-format.directive';
 import { AutoreFormComponent } from './autore-form/autore-form.component';
 import { LibroFormComponent } from './libro-form/libro-form.component';
 import {SignupFormComponent} from './signup-form/signup-form.component';
+import { NewLibroFormComponent } from './new-libro-form/new-libro-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {SignupFormComponent} from './signup-form/signup-form.component';
     InputFormatDirective,
     AutoreFormComponent,
     LibroFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    NewLibroFormComponent
   ],
   imports: [
     BrowserModule,

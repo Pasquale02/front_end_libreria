@@ -1,0 +1,9 @@
+<form>
+  <input type="text" class="form-control" #topic (keyup.enter)="addTopic(topic)">
+  <ul class="list-group">
+    <!-- topics = form.get('topics') perchè nel componente ho definito il getter-->
+    <li *ngFor="let topic of topics.controls" class="mt-1 list-group-item" (click)="removeTopic(topic)">
+      {{topic.value}}
+    </li>
+  </ul>
+</form>
