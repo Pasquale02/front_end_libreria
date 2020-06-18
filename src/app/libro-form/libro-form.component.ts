@@ -12,4 +12,8 @@ export class LibroFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  submit(form) {
+    console.log('total form = ', form);
+    console.log('value form = ', form.value);
+  }
 }

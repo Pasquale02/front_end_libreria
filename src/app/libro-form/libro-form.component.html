@@ -1,5 +1,5 @@
 <h2>Inserimento libro</h2>
-<form>
+<form #formLibro=ngForm (ngSubmit)="submit(formLibro)">
   <div class="form-group">
   <label for="titolo">Titolo</label>
   <input id="titolo" type="text" class="form-control"/>

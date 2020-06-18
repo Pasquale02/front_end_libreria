@@ -10,6 +10,11 @@ export class AutoreFormComponent implements OnInit {
   constructor() {
   }
 
+  contactMethod = [
+    {id: 1, value: 'Email'},
+    {id: 2, value: 'Phone'},
+  ];
+
   ngOnInit() {
   }
 
