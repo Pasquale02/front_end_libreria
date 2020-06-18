@@ -1,30 +1,32 @@
 <form [formGroup]="userForm" class="mt-4" (ngSubmit)="login()">
   <div *ngIf="userForm.errors" class="alert alert-danger">Invalid password or username</div>
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input
-      formControlName="username"
-      id="username"
-      type="text"
-      class="form-control">
-    <!-- il metodo get ha accesso a tutti gli oggetto formControl-->
-    <!--  <div *ngIf="userForm.get('username').touched && userForm.get('username').invalid" class="alert alert-danger">-->
-    <!-- oppure in maniera meno verbosa-->
-    <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
-      <div *ngIf="username.errors.required">Username obbligatorio</div>
-      <div *ngIf="username.errors.cannotContainSpace">Username non deve contenere gli spazi</div>
+  <div formGroupName="account">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        formControlName="username"
+        id="username"
+        type="text"
+        class="form-control">
+      <!-- il metodo get ha accesso a tutti gli oggetto formControl-->
+      <!--  <div *ngIf="userForm.get('username').touched && userForm.get('username').invalid" class="alert alert-danger">-->
+      <!-- oppure in maniera meno verbosa-->
+      <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+        <div *ngIf="username.errors.required">Username obbligatorio</div>
+        <div *ngIf="username.errors.cannotContainSpace">Username non deve contenere gli spazi</div>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input
-      formControlName="password"
-      id="password"
-      type="text"
-      class="form-control">
-    <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
-      <div *ngIf="password.errors.required">Password obbligatoria</div>
-      <div *ngIf="password.errors.minlength">Minimo {{password.errors.minlength.requiredLength}} caratteri</div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        formControlName="password"
+        id="password"
+        type="text"
+        class="form-control">
+      <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+        <div *ngIf="password.errors.required">Password obbligatoria</div>
+        <div *ngIf="password.errors.minlength">Minimo {{password.errors.minlength.requiredLength}} caratteri</div>
+      </div>
     </div>
   </div>
   <button class="btn btn-primary" type="submit">Sign Up</button>
