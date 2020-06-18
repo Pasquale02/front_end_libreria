@@ -4,3 +4,9 @@
 body {
   padding: 20px;
 }
+
+/* style per i field input invalidi */
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}
+

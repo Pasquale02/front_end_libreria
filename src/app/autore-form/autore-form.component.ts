@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-autore-form',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AutoreFormComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  log(nomeAutore) {
+    console.log('autore: ', nomeAutore);
   }
 
 }
