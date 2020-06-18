@@ -8,6 +8,8 @@ import {FormsModule} from '@angular/forms';
 import {CustomSummaryPipe} from './pipes/customSummary.pipe';
 import {AutoreComponent} from './autore/autore.component';
 import { InputFormatDirective } from './directives/input-format.directive';
+import { AutoreFormComponent } from './autore-form/autore-form.component';
+import { LibroFormComponent } from './libro-form/libro-form.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { InputFormatDirective } from './directives/input-format.directive';
     LibroComponent,
     CustomSummaryPipe,
     AutoreComponent,
-    InputFormatDirective
+    InputFormatDirective,
+    AutoreFormComponent,
+    LibroFormComponent
   ],
   imports: [
     BrowserModule,

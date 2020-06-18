@@ -326,16 +326,10 @@
   </a>
 </div>
 
-<app-libro [isRed]="libroLetto" (greetEvent)="greet()"> hello world </app-libro>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!--<app-libro [isRed]="libroLetto" (greetEvent)="greet()"> hello world </app-libro>-->
 
 <app-autore></app-autore>
+<app-autore-form></app-autore-form>
+<app-libro-form></app-libro-form>
 
 <router-outlet></router-outlet>
