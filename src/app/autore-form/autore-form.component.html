@@ -1,26 +1,35 @@
 <h2>Inserimento autore</h2>
 <form #formAutore=ngForm (ngSubmit)="submit(formAutore)">
-  <div class="form-group">
-    <label for="nomeAutore">Nome</label>
-    <!-- validazione template driven -->
-    <!--    #nomeAutore="ngModel" è un referrence che serve per la validazione di dopo con ngIf-->
-    <!--    nomeAutore.touched = se l'utente ha cliccato sul campo e si è allontanato-->
-    <input
-      required minlength="4" pattern="[a-zA-Z ]*"
-      ngModel name="nomeAutore" #nomeAutore="ngModel" (change)="log(nomeAutore)"
-      id="nomeAutore" type="text"
-      class="form-control"/>
 
-    <!--    messaggio di errore singolo -->
-    <!--    <div class="alert alert-danger" *ngIf="nomeAutore.touched && !nomeAutore.valid">Il nome deve avere minimo {{nomeAutore.errors.minlength.requiredLength}} caratteri</div>-->
+  <div ngModelGroup="gruppoAutore" #gruppoAutore="ngModelGroup">
+    <div *ngIf="gruppoAutore.touched && !gruppoAutore.valid">
+      Messaggi di errore di tutto il gruppo ...
+    </div>
+    <div class="form-group">
+      <label for="nomeAutore">Nome</label>
+      <!-- validazione template driven -->
+      <!--    #nomeAutore="ngModel" è un referrence che serve per la validazione di dopo con ngIf-->
+      <!--    nomeAutore.touched = se l'utente ha cliccato sul campo e si è allontanato-->
+      <input
+        required minlength="4" pattern="[a-zA-Z ]*"
+        ngModel name="nomeAutore" #nomeAutore="ngModel" (change)="log(nomeAutore)"
+        id="nomeAutore" type="text"
+        class="form-control"/>
 
-    <!--   messaggi diversi per i diversi tipi di errore: -->
+      <!--    messaggio di errore singolo -->
+      <!--    <div class="alert alert-danger" *ngIf="nomeAutore.touched && !nomeAutore.valid">Il nome deve avere minimo {{nomeAutore.errors.minlength.requiredLength}} caratteri</div>-->
 
-    <div class="alert alert-danger" *ngIf="nomeAutore.touched && !nomeAutore.valid">
-      <div *ngIf="nomeAutore.errors.required">Nome obbligatorio</div>
-      <div *ngIf="nomeAutore.errors.minlength">Il nome deve avere minimo {{nomeAutore.errors.minlength.requiredLength}} caratteri</div>
-      <div *ngIf="nomeAutore.errors.pattern">Il nome deve contenere solo lettere</div>
+      <!--   messaggi diversi per i diversi tipi di errore: -->
+
+      <div class="alert alert-danger" *ngIf="nomeAutore.touched && !nomeAutore.valid">
+        <div *ngIf="nomeAutore.errors.required">Nome obbligatorio</div>
+        <div *ngIf="nomeAutore.errors.minlength">Il nome deve avere
+          minimo {{nomeAutore.errors.minlength.requiredLength}} caratteri
+        </div>
+        <div *ngIf="nomeAutore.errors.pattern">Il nome deve contenere solo lettere</div>
+      </div>
     </div>
   </div>
+
   <button class="btn btn-primary">Submit</button>
 </form>
