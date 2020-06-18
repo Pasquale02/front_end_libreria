@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {UsernameValidators} from './username.validators';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -11,7 +12,10 @@ export class SignupFormComponent {
   userForm = new FormGroup({
     username: new FormControl(
       '',
-      Validators.required
+      [
+        Validators.required,
+        UsernameValidators.cannotContainSpace
+      ]
     ),
     password: new FormControl(
       '',
@@ -21,6 +25,10 @@ export class SignupFormComponent {
       ]
     )
   });
+
+  get username() {
+    return this.userForm.get('username');
+  }
 
   get password() {
     return this.userForm.get('password');
