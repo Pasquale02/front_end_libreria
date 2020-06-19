@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormArray, FormControl, FormGroup} from '@angular/forms';
+import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-new-libro-form',
@@ -8,7 +8,20 @@ import {AbstractControl, FormArray, FormControl, FormGroup} from '@angular/forms
 })
 export class NewLibroFormComponent implements OnInit {
 
-  constructor() {
+  formBuilder;
+
+  constructor(fb: FormBuilder) {
+    // alternativa a SignupFormComponent che usa il new FormGroup
+    this.formBuilder = fb.group({
+      name: fb.control('', Validators.required),
+      // oppure
+      // name: ['', Validators.required]
+      contact: fb.group({
+        email: [],
+        phone: []
+      }),
+      topics: fb.array([])
+    });
   }
 
   form = new FormGroup({
