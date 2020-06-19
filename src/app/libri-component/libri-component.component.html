@@ -1,0 +1,30 @@
+<h2>{{listaLibri}}</h2>
+<div class="row">
+  <div class="col">
+    <ul class="pl-0">
+      <li class="list-group-item" *ngFor="let libro of libri">
+        {{libro.titolo}}
+        <!--  il seg campo non c'è-->
+        <!--    {{libro.pagesNumber | number:'1.2-3'}}-->
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <div *ngIf="libroSelected !== null; then dettagli else noDettagli">Elenco libri dell'autore</div>
+    <ng-template #dettagli>
+      <h2> Libri </h2>
+      <ul>
+        <li class="list-group-item" *ngFor="let libro of libri">
+          {{libroSelected.isbn}}
+          {{libroSelected.prezzo | currency:'AUD':false:'3.2-2'}}
+          <!--  il seg campo non c'è-->
+          <!--    {{libro.pagesNumber | number:'1.2-3'}}-->
+        </li>
+      </ul>
+    </ng-template>
+    <ng-template #noDettagli><h4>Nessun dettaglio</h4></ng-template>
+  </div>
+</div>
+
+
+

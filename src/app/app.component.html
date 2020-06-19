@@ -1,29 +1,18 @@
 <!--<app-libro [isRed]="libroLetto" (greetEvent)="greet()"> hello world </app-libro>-->
 
-<app-autore></app-autore>
+<!--<app-autore></app-autore>-->
 
 <!--le seguenti andranno bene per connessione a spring-->
 <!--<app-autore-form></app-autore-form>-->
 <!--<app-libro-form></app-libro-form>-->
 
 <div class="row m-2" style="border: 1px solid red">
-  <div class="col">Inserimento dati</div>
-  <div class="col">Lista dati</div>
-</div>
-<div class="row m-2" style="border: 1px solid red">
   <div class="col">
     Inserisci autore
     <signup-form></signup-form>
   </div>
   <div class="col">
-    Lista autori
-    <div class="card mt-4" style="width: 18rem;">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
-    </div>
+    <app-autori-component></app-autori-component>
   </div>
 </div>
 <div class="row m-2" style="border: 1px solid red">
@@ -32,14 +21,7 @@
     <signup-form></signup-form>
   </div>
   <div class="col">
-    Lista libri
-    <div class="card mt-4" style="width: 18rem;">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
-    </div>
+   <app-libri-component></app-libri-component>
   </div>
 </div>
 

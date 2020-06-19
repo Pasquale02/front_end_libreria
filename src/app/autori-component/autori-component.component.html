@@ -1,0 +1,28 @@
+<h2>Elenco autori</h2>
+<div class="row">
+  <div class="col-7">
+    <ul class="pl-0">
+      <li class="list-group-item" *ngFor="let autore of autori;  trackBy: trackAutore">
+        {{autore.nome_autore}}
+        {{autore.cognome_autore}}
+        <!-- per i formati possibili vai su angular datePipe -->
+        {{autore.data_nascita | date: 'shortDate'}}
+        <!--        <button (click)="mostraLibri(autore)">Mostra libri</button>-->
+        <button (click)="removeAutore(autore)">Remove</button>
+        <!--        <button (click)="updateAutore(autore)">Update</button>-->
+      </li>
+    </ul>
+  </div>
+  <div class="col-5">
+    <div *ngIf="autori.libri && autori.libri.length > 0; then elencoAutori else noAutori">Elenco libri dell'autore</div>
+    <ng-template #elencoAutori>
+      <h2> Libri </h2>
+      <ul>
+        <li>
+        </li>
+      </ul>
+    </ng-template>
+    <ng-template #noAutori><h4>Nessun libro per l'autore selezionato</h4></ng-template>
+  </div>
+</div>
+

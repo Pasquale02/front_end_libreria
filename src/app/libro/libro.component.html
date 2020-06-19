@@ -1,9 +1,3 @@
-<h2 style="padding-top: 20px">{{getTitle()}}</h2>
-<ul>
-  <li *ngFor="let libro of libri">
-    {{libro}}
-  </li>
-</ul>
 <button class="btn btn-primary">Save</button>
 <!-- class and style binding -->
 <button [class.alert-danger]="isActive">Save</button>
@@ -20,24 +14,6 @@
 <!-- binding two way -->
 Binding due vie:
 <input [(ngModel)]='twoWay' (keyup.enter)="onTwoWayBinding()"/>
-
-<div>
-  <h2 class="my-3">Pipes</h2>
-  <p>{{libro.titolo | uppercase}}</p>
-  <p>{{libro.pagesNumber | number}}</p>
-  <p>prezzo: {{libro.price | currency:'AUD':false:'3.2-2'}}</p>
-  <p>ratings: {{libro.ratings | number:'1.2-3'}}</p>
-  <p>{{libro.autore}}</p>
-  <p>{{libro.isbn}}</p>
-<!-- per i formati possibili vai su angular datePipe -->
-  <p>{{libro.releaseDate | date: 'shortDate'}}</p>
-
-<!-- custom pipe su testo -->
-  <p>{{testo | customSummary}}</p>
-</div>
-
-<p *ngIf="isRed">Libro letto</p>
-<p *ngIf="!isRed">Libro da leggere</p>
 
 <button (click)="callParentGreet()">Greet</button>
 <ng-content></ng-content>
