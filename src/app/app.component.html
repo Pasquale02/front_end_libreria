@@ -1,15 +1,6 @@
-<!--<app-libro [isRed]="libroLetto" (greetEvent)="greet()"> hello world </app-libro>-->
-
-<!--<app-autore></app-autore>-->
-
-<!--le seguenti andranno bene per connessione a spring-->
-<!--<app-autore-form></app-autore-form>-->
-<!--<app-libro-form></app-libro-form>-->
-
 <div class="row m-2" style="border: 1px solid red">
   <div class="col">
-    Inserisci autore
-    <signup-form></signup-form>
+    <app-autore-form-register></app-autore-form-register>
   </div>
   <div class="col">
     <app-autori-component></app-autori-component>
@@ -17,15 +8,15 @@
 </div>
 <div class="row m-2" style="border: 1px solid red">
   <div class="col">
-    Inserisci libro
-    <signup-form></signup-form>
+    <!-- <app-libro-form></app-libro-form>-->
+    <app-libro-form-register></app-libro-form-register>
   </div>
   <div class="col">
-   <app-libri-component></app-libri-component>
+    <app-libri-component></app-libri-component>
   </div>
 </div>
 
-Esempio lista con cancellazione su li al click:
-<app-new-libro-form></app-new-libro-form>
+<!--Esempio lista con cancellazione su li al click: (poi ci sono diversi componenti senza logica)-->
+<!--<app-new-libro-form [isRed]="libroLetto" (greetEvent)="greet()"></app-new-libro-form>-->
 
 <router-outlet></router-outlet>

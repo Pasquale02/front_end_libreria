@@ -1,0 +1,54 @@
+<h2>Inserimento autore</h2>
+<form [formGroup]="autoreForm" class="mt-4" (ngSubmit)="inviaDati()">
+  <!--  validazione dati dopo il submit  -->
+  <div *ngIf="autoreForm.errors" class="alert alert-danger">Dati invalidi</div>
+  <div formGroupName="autore">
+    <div class="form-group">
+      <label for="nome">Nome autore</label>
+      <!--  il formControlName deve essere uguale a quello nel component ts-->
+      <input
+        formControlName="nome"
+        id="nome"
+        type="text"
+        class="form-control">
+      <!-- il metodo get ha accesso a tutti gli oggetto formControl-->
+      <!--  <div *ngIf="userForm.get('nome_autore').touched && userForm.get('nome_autore').invalid" class="alert alert-danger">-->
+      <!-- oppure in maniera meno verbosa-->
+      <!--  nome_autore è il nome del getter definito nel componente -->
+      <div *ngIf="nome_autore && nome_autore.touched && nome_autore.invalid" class="alert alert-danger">
+        <div *ngIf="nome_autore.errors.required">Nome obbligatorio</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cognome">Cognome autore</label>
+      <input
+        formControlName="cognome"
+        id="cognome"
+        type="text"
+        class="form-control">
+      <div *ngIf="cognome_autore && cognome_autore.touched && cognome_autore.invalid" class="alert alert-danger">
+        <div *ngIf="cognome_autore.errors.required">Cognome obbligatorio</div>
+        <div *ngIf="cognome_autore.errors.minlength">Minimo {{cognome_autore.errors.minlength.requiredLength}}
+          caratteri
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="datanascita">Data nascita autore</label>
+      <input
+        formControlName="data_nascita"
+        id="datanascita"
+        type="text"
+        class="form-control">
+      <div *ngIf="data_nascita && data_nascita.touched && data_nascita.invalid" class="alert alert-danger">
+        <div *ngIf="data_nascita.errors.required">Data nascita obbligatoria</div>
+        <div *ngIf="data_nascita.errors.minlength">Minimo {{data_nascita.errors.minlength.requiredLength}}caratteri
+        </div>
+        <div *ngIf="data_nascita.errors.cannotContainSpace">La data di nascita non deve contenere gli spazi</div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Salva autore</button>
+</form>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AutoreFormComponent } from './autore-form.component';
+import { AutoreFormRegisterComponent } from './autore-form-register.component';
 
-describe('AutoreFormComponent', () => {
-  let component: AutoreFormComponent;
-  let fixture: ComponentFixture<AutoreFormComponent>;
+describe('AutoreFormRegisterComponent', () => {
+  let component: AutoreFormRegisterComponent;
+  let fixture: ComponentFixture<AutoreFormRegisterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AutoreFormComponent ]
+      declarations: [ AutoreFormRegisterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AutoreFormComponent);
+    fixture = TestBed.createComponent(AutoreFormRegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

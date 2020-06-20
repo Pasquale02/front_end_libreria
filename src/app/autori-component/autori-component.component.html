@@ -7,14 +7,14 @@
         {{autore.cognome_autore}}
         <!-- per i formati possibili vai su angular datePipe -->
         {{autore.data_nascita | date: 'shortDate'}}
-        <!--        <button (click)="mostraLibri(autore)">Mostra libri</button>-->
+        <!-- <button (click)="mostraLibri(autore)">Mostra libri</button>-->
         <button (click)="removeAutore(autore)">Remove</button>
-        <!--        <button (click)="updateAutore(autore)">Update</button>-->
+        <!--  <button (click)="updateAutore(autore)">Update</button>-->
       </li>
     </ul>
   </div>
   <div class="col-5">
-    <div *ngIf="autori.libri && autori.libri.length > 0; then elencoAutori else noAutori">Elenco libri dell'autore</div>
+    <div *ngIf="autori && autori.libri && autori.libri.length > 0; then elencoAutori else noAutori">Elenco libri dell'autore</div>
     <ng-template #elencoAutori>
       <h2> Libri </h2>
       <ul>

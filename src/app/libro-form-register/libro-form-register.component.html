@@ -1,0 +1,45 @@
+<h2>Inserimento libro</h2>
+<form [formGroup]="libroForm" class="mt-4" (ngSubmit)="inviaDati()">
+  <!--  validazione dati dopo il submit  -->
+  <div *ngIf="libroForm.errors" class="alert alert-danger">Dati invalidi</div>
+  <div formGroupName="libro">
+    <div class="form-group">
+      <label for="titolo">Titolo</label>
+      <!--  il formControlName deve essere uguale a quello nel component ts-->
+      <input
+        formControlName="titolo"
+        id="titolo"
+        type="text"
+        class="form-control">
+      <!--  titolo è il nome del getter definito nel componente -->
+      <div *ngIf="titolo && titolo.touched && titolo.invalid" class="alert alert-danger">
+        <div *ngIf="titolo.errors.required">Titolo obbligatorio</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="isbn">Isbn</label>
+      <input
+        formControlName="isbn"
+        id="isbn"
+        type="text"
+        class="form-control">
+      <div *ngIf="isbn && isbn.touched && isbn.invalid" class="alert alert-danger">
+        <div *ngIf="isbn.errors.required">Isbn obbligatorio</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="prezzo">Prezzo</label>
+      <input
+        formControlName="prezzo"
+        id="prezzo"
+        type="text"
+        class="form-control">
+      <div *ngIf="prezzo && prezzo.touched && prezzo.invalid" class="alert alert-danger">
+        <div *ngIf="prezzo.errors.required">Prezzo obbligatorio</div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Salva libro</button>
+</form>
