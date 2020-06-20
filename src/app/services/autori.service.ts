@@ -10,12 +10,12 @@ export class AutoriService {
   }
 
   getAutori() {
-    // return this.httpClient.get('https://jsonplaceholder.typicode.com/users');
     return this.httpClient.get('http://localhost:8090/api/elencoAutori');
   }
 
   getAutore(id) {
-    return this.httpClient.get('http://localhost:8090/api/cercaAutore/', id);
+    console.log('[in service get autore id]' + id);
+    return this.httpClient.get('http://localhost:8090/api/cercaAutore/' + id);
   }
 
   postAutore(autore) {
@@ -34,5 +34,10 @@ export class AutoriService {
     };
     return this.httpClient.post<any>('http://localhost:8090/api/inserisciAutore',
       autoreToSend, httpOptions);
+  }
+
+  deleteAutore(id) {
+    console.log('[in service delete autore id]' + id);
+    return this.httpClient.delete<any>('http://localhost:8090/api/deleteAutore/' + id);
   }
 }

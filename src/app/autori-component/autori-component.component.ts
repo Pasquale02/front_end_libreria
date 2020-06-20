@@ -33,6 +33,11 @@ export class AutoriComponentComponent implements OnInit {
 
   removeAutore(autore) {
     const index = this.autori.indexOf(autore);
+    this.autoriService.deleteAutore(autore.id_autore).subscribe(
+      response => {
+        console.log('autore cancellato', response);
+      }
+    );
     this.autori.splice(index, 1);
   }
 
