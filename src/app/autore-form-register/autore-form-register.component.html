@@ -1,5 +1,5 @@
 <h2>Inserimento autore</h2>
-<form [formGroup]="autoreForm" class="mt-4" (ngSubmit)="inviaDati()">
+<form [formGroup]="autoreForm" class="mt-4" (ngSubmit)="inviaDati(autoreForm)">
   <!--  validazione dati dopo il submit  -->
   <div *ngIf="autoreForm.errors" class="alert alert-danger">Dati invalidi</div>
   <div formGroupName="autore">

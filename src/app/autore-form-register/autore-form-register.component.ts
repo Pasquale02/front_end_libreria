@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DataNascitaValidator} from '../autori-component/dataNascita.validator';
+import {AutoriService} from '../services/autori.service';
 
 @Component({
   selector: 'app-autore-form-register',
@@ -9,7 +10,7 @@ import {DataNascitaValidator} from '../autori-component/dataNascita.validator';
 })
 export class AutoreFormRegisterComponent implements OnInit {
 
-  constructor() {
+  constructor(private autoriService: AutoriService) {
   }
 
   get nome_autore() {
@@ -51,9 +52,16 @@ export class AutoreFormRegisterComponent implements OnInit {
     })
   });
 
-  inviaDati() {
+  inviaDati(data) {
     // let isValid = authService.login(this.form.value);
     let isValid = true;
+    const autore = data.value.autore;
+
+    this.autoriService.postAutore(autore).subscribe(
+      response => {
+        console.log('response saved=', response);
+      }
+    );
     if (!isValid) {
       this.autoreForm.setErrors({
         invalidLogin: true
