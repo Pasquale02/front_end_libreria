@@ -10,23 +10,25 @@
         <div>
           <button class="btn btn-primary" (click)="mostraLibri(autore)">Mostra libri</button>
           <button class="btn btn-danger" (click)="removeAutore(autore)">Remove</button>
+          <!--  <button (click)="updateAutore(autore)">Update</button>-->
         </div>
-        <!--  <button (click)="updateAutore(autore)">Update</button>-->
       </li>
     </ul>
   </div>
   <div class="col-5">
-    <div *ngIf="autori && autori.libri && autori.libri.length > 0; then elencoAutori else noAutori">Elenco libri
-      dell'autore
+    <div *ngIf="libriByAutore && libriByAutore.length > 0; then elencoAutori else noLibri">
+      Elenco libri di {{autoreSelected}}
     </div>
     <ng-template #elencoAutori>
-      <h2> Libri </h2>
-      <ul>
-        <li>
+      <h2> Libri dell'autore {{autoreSelected}}</h2>
+      <ul class="pl-0">
+        <li class="list-group-item" *ngFor="let libro of libriByAutore;">
+          {{libro.titolo}}
         </li>
       </ul>
     </ng-template>
-    <ng-template #noAutori><h4>Nessun libro per l'autore selezionato</h4></ng-template>
+    <ng-template #noLibri><h4 *ngIf="autoreSelected !== null">Nessun libro trovato per {{autoreSelected}}</h4></ng-template>
+    <h4 *ngIf="autoreSelected === null">Nessun autore selezionato</h4>
   </div>
 </div>
 

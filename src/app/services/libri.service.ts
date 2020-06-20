@@ -12,6 +12,11 @@ export class LibriService {
     return this.httpClient.get('http://localhost:8090/api/elencoLibri');
   }
 
+  getLibriPerAutore(idAutore) {
+    console.log('[in service get libro by autore id]' + idAutore);
+    return this.httpClient.get('http://localhost:8090/api/cercaLibriPerAutore/' + idAutore);
+  }
+
   getLibro(id) {
     console.log('[in service get libro id]' + id);
     return this.httpClient.get('http://localhost:8090/api/cercaLibro/' + id);

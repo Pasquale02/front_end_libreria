@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AutoriService} from '../services/autori.service';
 import {map} from 'rxjs/operators';
+import {LibriService} from '../services/libri.service';
 
 @Component({
   selector: 'app-autori-component',
@@ -9,11 +10,13 @@ import {map} from 'rxjs/operators';
 })
 export class AutoriComponentComponent implements OnInit {
 
-  constructor(private autoriService: AutoriService) {
+  constructor(private autoriService: AutoriService, private libriService: LibriService) {
   }
 
   // tslint:disable-next-line:ban-types
   autori;
+  libriByAutore;
+  autoreSelected = null;
 
   ngOnInit() {
     this.autoriService.getAutori().subscribe(
@@ -28,10 +31,11 @@ export class AutoriComponentComponent implements OnInit {
   }
 
   mostraLibri(autore) {
-    console.log('mostra libri');
-    this.autoriService.getAutore(autore.id_autore).subscribe(
+    this.autoreSelected = autore.nome_autore + ' ' + autore.cognome_autore;
+    this.libriService.getLibriPerAutore(autore.id_autore).subscribe(
       response => {
-        console.log('autore retrieved==', response);
+        console.log('libri by idautore retrieved==', response);
+        this.libriByAutore = response;
       }
     );
   }
