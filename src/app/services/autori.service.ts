@@ -19,7 +19,7 @@ export class AutoriService {
   }
 
   postAutore(autore) {
-    console.log('[in service post]', autore);
+    console.log('[in service autore post]', autore);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

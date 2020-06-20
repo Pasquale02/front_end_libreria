@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {LibriService} from '../services/libri.service';
 
 @Component({
   selector: 'app-libro-form-register',
@@ -8,7 +9,7 @@ import { FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class LibroFormRegisterComponent implements OnInit {
 
-  constructor() {
+  constructor(private libroService: LibriService) {
   }
 
   get titolo() {
@@ -43,10 +44,18 @@ export class LibroFormRegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  inviaDati() {
+  inviaDati(data) {
     // let isValid = authService.login(this.form.value);
     let isValid = true;
-    if (isValid) {
+    const libro = data.value.libro;
+
+    this.libroService.postLibro(libro).subscribe(
+      response => {
+        console.log('response saved=', response);
+      }
+    );
+
+    if (!isValid) {
       this.libroForm.setErrors({
         invalidLogin: true
       });

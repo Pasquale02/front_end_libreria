@@ -21,4 +21,14 @@ export class LibriComponentComponent implements OnInit {
       }
     );
   }
+
+  removeLibro(libro) {
+    const index = this.libri.indexOf(libro);
+    this.libriService.deleteLibro(libro.id_libro).subscribe(
+      response => {
+        console.log('libro cancellato', response);
+      }
+    );
+    this.libri.splice(index, 1);
+  }
 }

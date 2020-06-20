@@ -1,5 +1,5 @@
 <h2>Inserimento libro</h2>
-<form [formGroup]="libroForm" class="mt-4" (ngSubmit)="inviaDati()">
+<form [formGroup]="libroForm" class="mt-4" (ngSubmit)="inviaDati(libroForm)">
   <!--  validazione dati dopo il submit  -->
   <div *ngIf="libroForm.errors" class="alert alert-danger">Dati invalidi</div>
   <div formGroupName="libro">

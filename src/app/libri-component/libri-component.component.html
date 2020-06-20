@@ -6,6 +6,9 @@
         {{libro.titolo}}
         <!--  il seg campo non c'è-->
         <!--    {{libro.pagesNumber | number:'1.2-3'}}-->
+        <div>
+          <button class="btn btn-danger" (click)="removeLibro(libro)">Remove</button>
+        </div>
       </li>
     </ul>
   </div>

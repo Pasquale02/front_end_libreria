@@ -29,6 +29,11 @@ export class AutoriComponentComponent implements OnInit {
 
   mostraLibri(autore) {
     console.log('mostra libri');
+    this.autoriService.getAutore(autore.id_autore).subscribe(
+      response => {
+        console.log('autore retrieved==', response);
+      }
+    );
   }
 
   removeAutore(autore) {
