@@ -38,7 +38,7 @@ export class AutoreFormRegisterComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(3)
+          Validators.minLength(4)
         ]
       ),
       data_nascita: new FormControl(
@@ -53,22 +53,26 @@ export class AutoreFormRegisterComponent implements OnInit {
   });
 
   inviaDati(data) {
-    // let isValid = authService.login(this.form.value);
-    let isValid = true;
     const autore = data.value.autore;
-
     this.autoriService.postAutore(autore).subscribe(
       response => {
         console.log('response saved=', response);
       }
     );
-    if (!isValid) {
-      this.autoreForm.setErrors({
-        invalidLogin: true
-      });
-    } else {
-      console.log('autore salvato');
-    }
+    // const isValid = this.autoreForm.errors;
+    // const autore = data.value.autore;
+    //
+    // if (!isValid) {
+    //   this.autoreForm.setErrors({
+    //     invalidData: true
+    //   });
+    // } else {
+    //   this.autoriService.postAutore(autore).subscribe(
+    //     response => {
+    //       console.log('response saved=', response);
+    //     }
+    //   );
+    // }
   }
 
   ngOnInit() {

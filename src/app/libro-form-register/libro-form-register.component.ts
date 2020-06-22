@@ -11,6 +11,7 @@ import {AutoriService} from '../services/autori.service';
 export class LibroFormRegisterComponent implements OnInit {
 
   autori;
+
   constructor(private libroService: LibriService, private autoriService: AutoriService) {
   }
 
@@ -60,22 +61,25 @@ export class LibroFormRegisterComponent implements OnInit {
   }
 
   inviaDati(data) {
-    // let isValid = authService.login(this.form.value);
-    let isValid = true;
     const libro = data.value.libro;
-
     this.libroService.postLibro(libro).subscribe(
       response => {
         console.log('response saved=', response);
       }
     );
-
-    if (!isValid) {
-      this.libroForm.setErrors({
-        invalidLogin: true
-      });
-    } else {
-      console.log('libro salvato');
-    }
+    // const isValid = this.libroForm.errors;
+    // const libro = data.value.libro;
+    //
+    // if (!isValid) {
+    //   this.libroForm.setErrors({
+    //     invalidData: true
+    //   });
+    // } else {
+    //   this.libroService.postLibro(libro).subscribe(
+    //     response => {
+    //       console.log('response saved=', response);
+    //     }
+    //   );
+    // }
   }
 }

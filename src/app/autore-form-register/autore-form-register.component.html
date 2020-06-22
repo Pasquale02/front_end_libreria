@@ -29,7 +29,8 @@
         class="form-control">
       <div *ngIf="cognome_autore && cognome_autore.touched && cognome_autore.invalid" class="alert alert-danger">
         <div *ngIf="cognome_autore.errors.required">Cognome obbligatorio</div>
-        <div *ngIf="cognome_autore.errors.minlength">Minimo {{cognome_autore.errors.minlength.requiredLength}}
+        <div *ngIf="cognome_autore.errors.minlength">Il cognome deve avere
+          minimo {{cognome_autore.errors.minlength.requiredLength}}
           caratteri
         </div>
       </div>
@@ -50,5 +51,5 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-primary" type="submit">Salva autore</button>
+  <button class="btn btn-primary" type="submit" [disabled]="!autoreForm.valid">Salva autore</button>
 </form>

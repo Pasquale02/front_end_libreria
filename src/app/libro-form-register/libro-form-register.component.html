@@ -47,15 +47,11 @@
         formControlName="autore"
         id="autore"
         name="autore"
-        ngModel="autori"
         class="form-control">
         <option *ngFor="let item of autori" [value]="item.id_autore">{{item.nome_autore}} {{item.cognome_autore}}</option>
       </select>
-        <div *ngIf="prezzo && prezzo.touched && prezzo.invalid" class="alert alert-danger">
-          <div *ngIf="prezzo.errors.required">Prezzo obbligatorio</div>
-        </div>
     </div>
 
   </div>
-  <button class="btn btn-primary" type="submit">Salva libro</button>
+  <button class="btn btn-primary" type="submit" [disabled]="!libroForm.valid">Salva libro</button>
 </form>
