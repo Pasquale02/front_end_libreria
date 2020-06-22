@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LibriService} from '../services/libri.service';
+import {AutoriService} from '../services/autori.service';
 
 @Component({
   selector: 'app-libro-form-register',
@@ -9,7 +10,8 @@ import {LibriService} from '../services/libri.service';
 })
 export class LibroFormRegisterComponent implements OnInit {
 
-  constructor(private libroService: LibriService) {
+  autori;
+  constructor(private libroService: LibriService, private autoriService: AutoriService) {
   }
 
   get titolo() {
@@ -22,6 +24,10 @@ export class LibroFormRegisterComponent implements OnInit {
 
   get prezzo() {
     return this.libroForm.get('libro.prezzo');
+  }
+
+  get autore() {
+    return this.libroForm.get('libro.autore');
   }
 
   libroForm = new FormGroup({
@@ -37,11 +43,20 @@ export class LibroFormRegisterComponent implements OnInit {
       prezzo: new FormControl(
         '',
         Validators.required
+      ),
+      autore: new FormControl(
+        '',
+        Validators.required
       )
     })
   });
 
   ngOnInit() {
+    this.autoriService.getAutori().subscribe(
+      response => {
+        this.autori = response;
+      }
+    );
   }
 
   inviaDati(data) {
