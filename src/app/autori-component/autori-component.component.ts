@@ -26,10 +26,6 @@ export class AutoriComponentComponent implements OnInit {
     );
   }
 
-  trackAutore(index, autore) {
-    return autore ? autore.id : undefined;
-  }
-
   mostraLibri(autore) {
     this.autoreSelected = autore.nome_autore + ' ' + autore.cognome_autore;
     this.libriService.getLibriPerAutore(autore.id_autore).subscribe(
