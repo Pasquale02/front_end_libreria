@@ -25,9 +25,9 @@ export class LibriComponentComponent implements OnInit {
   }
 
   dettagliLibro(libro) {
-    const index = this.libri.indexOf(libro);
-    this.libriService.getLibro(index).subscribe(
+    this.libriService.getLibro(libro.id_libro).subscribe(
       response => {
+        console.log('response===', response);
         this.libroSelected = response;
       }
     );

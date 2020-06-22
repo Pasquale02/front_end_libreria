@@ -8,9 +8,9 @@
         <!-- per i formati possibili vai su angular datePipe -->
         {{autore.data_nascita | date: 'shortDate'}}
         <div>
-          <button class="btn btn-primary" (click)="mostraLibri(autore)">Mostra libri</button>
-          <button class="btn btn-danger" (click)="removeAutore(autore)">Remove</button>
-          <!--  <button (click)="updateAutore(autore)">Update</button>-->
+          <!--  <button class="btn btn-primary" (click)="updateAutore(autore)">Aggiorna dati</button>-->
+          <button class="btn btn-danger" (click)="removeAutore(autore)">Rimuovi autore</button>
+          <button class="ml-2 btn btn-primary" (click)="mostraLibri(autore)">Mostra libri</button>
         </div>
       </li>
     </ul>
@@ -20,14 +20,14 @@
       Elenco libri di {{autoreSelected}}
     </div>
     <ng-template #elencoAutori>
-      <h2> Libri dell'autore {{autoreSelected}}</h2>
       <ul class="pl-0">
         <li class="list-group-item" *ngFor="let libro of libriByAutore;">
           {{libro.titolo}}
         </li>
       </ul>
     </ng-template>
-    <ng-template #noLibri><h4 *ngIf="autoreSelected !== null">Nessun libro trovato per {{autoreSelected}}</h4></ng-template>
+    <ng-template #noLibri><h5 *ngIf="autoreSelected !== null">Nessun libro trovato per {{autoreSelected}}</h5>
+    </ng-template>
     <h4 *ngIf="autoreSelected === null">Nessun autore selezionato</h4>
   </div>
 </div>

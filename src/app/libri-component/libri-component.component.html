@@ -1,28 +1,27 @@
 <h2>{{listaLibri}}</h2>
 <div class="row">
-  <div class="col">
+  <div class="col-7">
     <ul class="pl-0">
       <li class="list-group-item" *ngFor="let libro of libri">
         {{libro.titolo}}
         <!--  il seg campo non c'è-->
         <!--    {{libro.pagesNumber | number:'1.2-3'}}-->
         <div>
-          <!--          <button class="btn btn-primary" (click)="dettagliLibro(libro)">Remove</button>-->
-          <button class="btn btn-danger" (click)="removeLibro(libro)">Remove</button>
+          <button class="btn btn-danger" (click)="removeLibro(libro)">Rimuovi libro</button>
+          <button class="ml-2 btn btn-primary" (click)="dettagliLibro(libro)">Mostra dettagli</button>
         </div>
       </li>
     </ul>
   </div>
-  <div class="col">
-    <div *ngIf="libroSelected !== null; then dettagli else noDettagli">Elenco libri dell'autore</div>
+  <div class="col-5">
+    <div *ngIf="libroSelected !== null; then dettagli else noDettagli"></div>
     <ng-template #dettagli>
-      <h2> Libri </h2>
-      <ul>
-        <li class="list-group-item" *ngFor="let libro of libri">
-          {{libroSelected.isbn}}
-          {{libroSelected.prezzo | currency:'AUD':false:'3.2-2'}}
-          <!--  il seg campo non c'è-->
-          <!--    {{libro.pagesNumber | number:'1.2-3'}}-->
+      <ul class="pl-0">
+        <li class="list-group-item">
+          ISBN: {{libroSelected.isbn}}
+        </li>
+        <li class="list-group-item">
+          PREZZO: {{libroSelected.prezzo | currency:'£':false:'2.2-2'}}
         </li>
       </ul>
     </ng-template>
