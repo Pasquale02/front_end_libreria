@@ -6,20 +6,24 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class AutoriService {
 
+  urlAutori = 'http://localhost:8090/api/autori';
+  urlAutore = 'http://localhost:8090/api/autore/';
+
   constructor(private httpClient: HttpClient) {
   }
 
   getAutori() {
-    return this.httpClient.get('http://localhost:8090/api/elencoAutori');
+    console.log('[get autori]' + this.urlAutori);
+    return this.httpClient.get(this.urlAutori);
   }
 
   getAutore(id) {
-    console.log('[in service get autore id]' + id);
-    return this.httpClient.get('http://localhost:8090/api/cercaAutore/' + id);
+    console.log('[get autore]' + this.urlAutore + id);
+    return this.httpClient.get(this.urlAutore + id);
   }
 
   postAutore(autore) {
-    console.log('[in service autore post]', autore);
+    console.log('[post autore]', autore);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -37,7 +41,7 @@ export class AutoriService {
   }
 
   deleteAutore(id) {
-    console.log('[in service delete autore id]' + id);
-    return this.httpClient.delete<any>('http://localhost:8090/api/deleteAutore/' + id);
+    console.log('[delete autore]' + this.urlAutore + 'delete/' + id);
+    return this.httpClient.delete<any>(this.urlAutore + 'delete/' + id);
   }
 }
