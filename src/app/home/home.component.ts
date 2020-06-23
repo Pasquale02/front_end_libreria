@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DataNascitaValidator} from '../autori-component/dataNascita.validator';
 import {AutoriService} from '../services/autori.service';
@@ -10,9 +10,19 @@ import {AutoriService} from '../services/autori.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  @Input() updated: object;
+
+  autoreToUpdate;
+
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  popolaForm(autore) {
+    this.updated = autore;
+    this.autoreToUpdate = autore;
   }
 
 }

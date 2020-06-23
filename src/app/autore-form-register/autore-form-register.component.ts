@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DataNascitaValidator} from '../autori-component/dataNascita.validator';
 import {AutoriService} from '../services/autori.service';
@@ -9,6 +9,12 @@ import {AutoriService} from '../services/autori.service';
   styleUrls: ['./autore-form-register.component.css']
 })
 export class AutoreFormRegisterComponent implements OnInit {
+
+  @Input() receivedParentAutore: AutoreFormRegisterComponent;
+
+  // creata perchè in ngOnChanges mi segnala errore
+  // tslint:disable-next-line:variable-name
+  private data_nascita_autore: any;
 
   constructor(private autoriService: AutoriService) {
   }
@@ -46,7 +52,7 @@ export class AutoreFormRegisterComponent implements OnInit {
         [
           Validators.required,
           // inserito solo per vedere come funziona la validazione custom
-          DataNascitaValidator.cannotContainSpace
+          // DataNascitaValidator.cannotContainSpace
         ]
       )
     })
@@ -76,5 +82,16 @@ export class AutoreFormRegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    if (this.receivedParentAutore) {
+      console.log('received autore=', this.receivedParentAutore);
+      this.autoreForm.get('autore').patchValue({
+        nome: this.receivedParentAutore.nome_autore,
+        cognome: this.receivedParentAutore.cognome_autore,
+        data_nascita: this.receivedParentAutore.data_nascita_autore,
+      });
+    }
   }
 }

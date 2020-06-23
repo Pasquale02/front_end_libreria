@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AutoriService} from '../services/autori.service';
 import {map} from 'rxjs/operators';
 import {LibriService} from '../services/libri.service';
@@ -9,6 +9,8 @@ import {LibriService} from '../services/libri.service';
   styleUrls: ['./autori-component.component.css']
 })
 export class AutoriComponentComponent implements OnInit {
+
+  @Output() updateAutoreLibro = new EventEmitter();
 
   constructor(private autoriService: AutoriService, private libriService: LibriService) {
   }
@@ -47,6 +49,6 @@ export class AutoriComponentComponent implements OnInit {
   }
 
   updateAutore(autore) {
-    autore.nome_autore = 'UPDATED';
+    this.updateAutoreLibro.emit(autore);
   }
 }

@@ -1,8 +1,8 @@
 <div class="row mt-2">
   <div class="col-md">
-    <app-autore-form-register></app-autore-form-register>
+    <app-autore-form-register [receivedParentAutore]="autoreToUpdate"></app-autore-form-register>
   </div>
   <div class="col-md">
-    <app-autori-component></app-autori-component>
+    <app-autori-component (updateAutoreLibro)="popolaForm($event)"></app-autori-component>
   </div>
 </div>

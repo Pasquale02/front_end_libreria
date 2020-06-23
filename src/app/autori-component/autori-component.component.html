@@ -8,8 +8,8 @@
         <!-- per i formati possibili vai su angular datePipe -->
         {{autore.data_nascita | date: 'shortDate'}}
         <div>
-          <!--  <button class="btn btn-primary" (click)="updateAutore(autore)">Aggiorna dati</button>-->
-          <button class="btn btn-danger" (click)="removeAutore(autore)">Rimuovi autore</button>
+          <button class="btn btn-primary" (click)="updateAutore(autore)">Update autore</button>
+          <button class="btn btn-danger ml-2" (click)="removeAutore(autore)">Rimuovi autore</button>
 <!--          <button class="ml-2 btn btn-primary" (click)="mostraLibri(autore)">Mostra libri</button>-->
           <a [routerLink]="['/autore', autore.id_autore]" class="btn btn-success ml-2">Mostra libri</a>
         </div>

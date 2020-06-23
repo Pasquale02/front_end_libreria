@@ -10,7 +10,7 @@ import {AutoriService} from '../services/autori.service';
 })
 export class LibroFormRegisterComponent implements OnInit {
 
-  @Input() receivedParentLibro: LibroFormRegisterComponent = null;
+  @Input() receivedParentLibro: LibroFormRegisterComponent;
   autori;
 
   constructor(private libroService: LibriService, private autoriService: AutoriService) {
