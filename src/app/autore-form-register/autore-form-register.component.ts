@@ -11,10 +11,13 @@ import {AutoriService} from '../services/autori.service';
 export class AutoreFormRegisterComponent implements OnInit {
 
   @Input() receivedParentAutore: AutoreFormRegisterComponent;
+  idReceivedAutore = null;
 
-  // creata perchè in ngOnChanges mi segnala errore
+  // creati perchè in ngOnChanges mi segnala errore
   // tslint:disable-next-line:variable-name
   private data_nascita_autore: any;
+  // tslint:disable-next-line:variable-name
+  private id_autore: any;
 
   constructor(private autoriService: AutoriService) {
   }
@@ -59,26 +62,16 @@ export class AutoreFormRegisterComponent implements OnInit {
   });
 
   inviaDati(data) {
-    const autore = data.value.autore;
+    let autore = data.value.autore;
+    if (this.idReceivedAutore !== null) {
+      autore.id_autore = this.idReceivedAutore;
+    }
+
     this.autoriService.postAutore(autore).subscribe(
       response => {
         console.log('response saved=', response);
       }
     );
-    // const isValid = this.autoreForm.errors;
-    // const autore = data.value.autore;
-    //
-    // if (!isValid) {
-    //   this.autoreForm.setErrors({
-    //     invalidData: true
-    //   });
-    // } else {
-    //   this.autoriService.postAutore(autore).subscribe(
-    //     response => {
-    //       console.log('response saved=', response);
-    //     }
-    //   );
-    // }
   }
 
   ngOnInit() {
@@ -87,6 +80,7 @@ export class AutoreFormRegisterComponent implements OnInit {
   ngOnChanges() {
     if (this.receivedParentAutore) {
       console.log('received autore=', this.receivedParentAutore);
+      this.idReceivedAutore = this.receivedParentAutore.id_autore;
       this.autoreForm.get('autore').patchValue({
         nome: this.receivedParentAutore.nome_autore,
         cognome: this.receivedParentAutore.cognome_autore,

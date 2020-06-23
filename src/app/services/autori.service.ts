@@ -31,13 +31,26 @@ export class AutoriService {
       })
     };
 
-    const autoreToSend = {
-      nome_autore: autore.nome,
-      cognome_autore: autore.cognome,
-      data_nascita_autore: autore.data_nascita
-    };
-    return this.httpClient.post<any>('http://localhost:8090/api/inserisciAutore',
-      autoreToSend, httpOptions);
+    let autoreToSend;
+    if (autore.id_autore) {
+      autoreToSend = {
+        id_autore: autore.id_autore,
+        nome_autore: autore.nome,
+        cognome_autore: autore.cognome,
+        data_nascita_autore: autore.data_nascita
+      };
+      return this.httpClient.put<any>('http://localhost:8090/api/autore/update/' + autoreToSend.id_autore,
+        autoreToSend, httpOptions);
+    } else {
+      autoreToSend = {
+        nome_autore: autore.nome,
+        cognome_autore: autore.cognome,
+        data_nascita_autore: autore.data_nascita
+      };
+      return this.httpClient.post<any>('http://localhost:8090/api/inserisciAutore',
+        autoreToSend, httpOptions);
+    }
+
   }
 
   deleteAutore(id) {

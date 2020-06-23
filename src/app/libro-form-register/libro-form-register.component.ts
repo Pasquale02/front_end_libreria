@@ -11,7 +11,14 @@ import {AutoriService} from '../services/autori.service';
 export class LibroFormRegisterComponent implements OnInit {
 
   @Input() receivedParentLibro: LibroFormRegisterComponent;
+
+  // per l'update
+  idReceivedLibro = null;
   autori;
+
+  // per onChanges
+  // tslint:disable-next-line:variable-name
+  private id_libro: any;
 
   constructor(private libroService: LibriService, private autoriService: AutoriService) {
   }
@@ -64,6 +71,7 @@ export class LibroFormRegisterComponent implements OnInit {
   ngOnChanges() {
     if (this.receivedParentLibro) {
       console.log('received libro', this.receivedParentLibro);
+      this.idReceivedLibro = this.receivedParentLibro.id_libro;
       this.libroForm.get('libro').patchValue({
         titolo: this.receivedParentLibro.titolo,
         isbn: this.receivedParentLibro.isbn,
@@ -74,24 +82,13 @@ export class LibroFormRegisterComponent implements OnInit {
 
   inviaDati(data) {
     const libro = data.value.libro;
+    if (this.idReceivedLibro !== null) {
+      libro.id_libro = this.idReceivedLibro;
+    }
     this.libroService.postLibro(libro).subscribe(
       response => {
         console.log('response saved=', response);
       }
     );
-    // const isValid = this.libroForm.errors;
-    // const libro = data.value.libro;
-    //
-    // if (!isValid) {
-    //   this.libroForm.setErrors({
-    //     invalidData: true
-    //   });
-    // } else {
-    //   this.libroService.postLibro(libro).subscribe(
-    //     response => {
-    //       console.log('response saved=', response);
-    //     }
-    //   );
-    // }
   }
 }
