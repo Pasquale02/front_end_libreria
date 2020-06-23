@@ -12,6 +12,12 @@ import {HttpClientModule} from '@angular/common/http';
 import { LibriComponentComponent } from './libri-component/libri-component.component';
 import { AutoreFormRegisterComponent } from './autore-form-register/autore-form-register.component';
 import { LibroFormRegisterComponent } from './libro-form-register/libro-form-register.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { TermsComponent } from './terms/terms.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +28,20 @@ import { LibroFormRegisterComponent } from './libro-form-register/libro-form-reg
     AutoriComponentComponent,
     LibriComponentComponent,
     AutoreFormRegisterComponent,
-    LibroFormRegisterComponent
+    LibroFormRegisterComponent,
+    AboutComponent,
+    HomeComponent,
+    PrivacyComponent,
+    TermsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

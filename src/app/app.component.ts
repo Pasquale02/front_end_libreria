@@ -12,4 +12,11 @@ export class AppComponent {
   greet() {
     alert('Hello child');
   }
+
+  // per routing
+  navbarOpen = false;
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 }
