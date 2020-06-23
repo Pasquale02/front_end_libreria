@@ -1,13 +1,5 @@
 <!--<div class="row m-2" style="border: 1px solid red">-->
 <!--  <div class="col-4">-->
-<!--    <app-autore-form-register></app-autore-form-register>-->
-<!--  </div>-->
-<!--  <div class="col-8">-->
-<!--    <app-autori-component></app-autori-component>-->
-<!--  </div>-->
-<!--</div>-->
-<!--<div class="row m-2" style="border: 1px solid red">-->
-<!--  <div class="col-4">-->
 <!--    <app-libro-form-register></app-libro-form-register>-->
 <!--  </div>-->
 <!--  <div class="col-8">-->
@@ -19,27 +11,21 @@
 <!--Esempio lista con cancellazione su li al click: (poi ci sono diversi componenti senza logica)-->
 <!--<app-new-libro-form [isRed]="libroLetto" (greetEvent)="greet()"></app-new-libro-form>-->
 
-<!--<router-outlet></router-outlet>-->
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" routerLink="">Angular Routing</a>
-  <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" routerLink="">Applicazione autori</a>
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="" routerLinkActive="active">Autori</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="about" routerLinkActive="active">About Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="privacy" routerLinkActive="active">Privacy Policy</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="terms" routerLinkActive="active">Terms and Conditions</a>
+        <a class="nav-link" routerLink="about" routerLinkActive="active">Libri</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="articles" routerLinkActive="active">articles</a>
@@ -48,6 +34,6 @@
   </div>
 </nav>
 
-<div class="container">
+<div class="mx-2">
   <router-outlet></router-outlet>
 </div>
