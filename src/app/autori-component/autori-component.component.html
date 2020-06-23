@@ -10,25 +10,11 @@
         <div>
           <!--  <button class="btn btn-primary" (click)="updateAutore(autore)">Aggiorna dati</button>-->
           <button class="btn btn-danger" (click)="removeAutore(autore)">Rimuovi autore</button>
-          <button class="ml-2 btn btn-primary" (click)="mostraLibri(autore)">Mostra libri</button>
+<!--          <button class="ml-2 btn btn-primary" (click)="mostraLibri(autore)">Mostra libri</button>-->
+          <a [routerLink]="['/autore', autore.id_autore]" class="btn btn-success ml-2">Mostra libri</a>
         </div>
       </li>
     </ul>
-  </div>
-  <div class="col-5">
-    <div *ngIf="libriByAutore && libriByAutore.length > 0; then elencoAutori else noLibri">
-      Elenco libri di {{autoreSelected}}
-    </div>
-    <ng-template #elencoAutori>
-      <ul class="pl-0">
-        <li class="list-group-item" *ngFor="let libro of libriByAutore;">
-          {{libro.titolo}}
-        </li>
-      </ul>
-    </ng-template>
-    <ng-template #noLibri><h5 *ngIf="autoreSelected !== null">Nessun libro trovato per {{autoreSelected}}</h5>
-    </ng-template>
-    <h4 *ngIf="autoreSelected === null">Nessun autore selezionato</h4>
   </div>
 </div>
 

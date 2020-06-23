@@ -1,0 +1,20 @@
+<h1 class="mt-2">Libri dell'autore {{autoreSelected.nome_autore}} {{autoreSelected.cognome_autore}} </h1>
+
+<div class="row">
+  <div class="col">
+    <div *ngIf="libriByAutore && libriByAutore.length > 0; then elencoAutori else noLibri">
+      Elenco libri di {{autoreSelected}}
+    </div>
+    <ng-template #elencoAutori>
+      <ul class="pl-0">
+        <li class="list-group-item" *ngFor="let libro of libriByAutore;">
+          {{libro.titolo}}
+        </li>
+      </ul>
+    </ng-template>
+    <ng-template #noLibri><h5 *ngIf="autoreSelected !== null">Nessun libro trovato! </h5>
+    </ng-template>
+    <h4 *ngIf="autoreSelected === null">Nessun autore selezionato</h4>
+  </div>
+</div>
+<a [routerLink]="['/autori']" class="btn btn-success">Torna indietro</a>

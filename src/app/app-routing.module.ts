@@ -3,15 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ArticlesComponent } from './articles/articles/articles.component'
-import { ArticleDetailsComponent } from './articles/article-details/article-details.component';
+import {LibroDettagliComponent} from './libro-dettagli/libro-dettagli.component';
+import {AutoreDettagliComponent} from './autore-dettagli/autore-dettagli.component';
 
 const routes: Routes = [
   { path: 'autori', component: HomeComponent },
+  { path: 'autore/:id', component: AutoreDettagliComponent },
   { path: 'libri', component: AboutComponent },
+  { path: 'libro/:id', component: LibroDettagliComponent },
   { path: '', redirectTo: '/autori', pathMatch: 'full' },
-  { path: 'articles', component: ArticlesComponent },
-  { path: 'article/:id', component: ArticleDetailsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

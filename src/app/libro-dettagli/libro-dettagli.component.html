@@ -1,0 +1,19 @@
+<h1 class="mt-2">Dettagli del libro: {{libro.titolo}}</h1>
+
+<div class="row">
+  <div class="col-5">
+    <div *ngIf="libro !== null; then dettagli else noDettagli"></div>
+    <ng-template #dettagli>
+      <ul class="pl-0">
+        <li class="list-group-item">
+          ISBN: {{libro.isbn}}
+        </li>
+        <li class="list-group-item">
+          PREZZO: {{libro.prezzo | currency:'£':false:'2.2-2'}}
+        </li>
+      </ul>
+    </ng-template>
+    <ng-template #noDettagli><h4>Nessun dettaglio</h4></ng-template>
+  </div>
+</div>
+<a [routerLink]="['/libri']" class="btn btn-success">Torna indietro</a>

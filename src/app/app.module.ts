@@ -16,8 +16,8 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ArticlesComponent } from './articles/articles/articles.component';
-import { ArticleDetailsComponent } from './articles/article-details/article-details.component';
+import { LibroDettagliComponent } from './libro-dettagli/libro-dettagli.component';
+import { AutoreDettagliComponent } from './autore-dettagli/autore-dettagli.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +32,8 @@ import { ArticleDetailsComponent } from './articles/article-details/article-deta
     AboutComponent,
     HomeComponent,
     PageNotFoundComponent,
-    ArticlesComponent,
-    ArticleDetailsComponent
+    LibroDettagliComponent,
+    AutoreDettagliComponent
   ],
   imports: [
     BrowserModule,
