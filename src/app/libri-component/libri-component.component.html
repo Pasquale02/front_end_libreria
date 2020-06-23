@@ -5,7 +5,8 @@
       <li class="list-group-item" *ngFor="let libro of libri">
         {{libro.titolo}}
         <div>
-          <button class="btn btn-danger" (click)="removeLibro(libro)">Rimuovi libro</button>
+          <button class="btn btn-primary" (click)="updateLibro(libro)">Update libro</button>
+          <button class="btn btn-danger ml-2" (click)="removeLibro(libro)">Rimuovi libro</button>
           <a [routerLink]="['/libro', libro.id_libro]" class="btn btn-success ml-2">Mostra dettagli</a>
         </div>
       </li>

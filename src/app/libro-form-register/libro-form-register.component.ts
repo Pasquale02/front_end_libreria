@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LibriService} from '../services/libri.service';
 import {AutoriService} from '../services/autori.service';
@@ -10,6 +10,7 @@ import {AutoriService} from '../services/autori.service';
 })
 export class LibroFormRegisterComponent implements OnInit {
 
+  @Input() receivedParentLibro: LibroFormRegisterComponent = null;
   autori;
 
   constructor(private libroService: LibriService, private autoriService: AutoriService) {
@@ -58,6 +59,17 @@ export class LibroFormRegisterComponent implements OnInit {
         this.autori = response;
       }
     );
+  }
+
+  ngOnChanges() {
+    if (this.receivedParentLibro) {
+      console.log('received libro', this.receivedParentLibro);
+      this.libroForm.get('libro').patchValue({
+        titolo: this.receivedParentLibro.titolo,
+        isbn: this.receivedParentLibro.isbn,
+        prezzo: this.receivedParentLibro.prezzo,
+      });
+    }
   }
 
   inviaDati(data) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  @Input() updated: object;
+
+  libroToUpdate;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  popolaForm(libro) {
+    this.updated = libro;
+    this.libroToUpdate = libro;
+  }
 }

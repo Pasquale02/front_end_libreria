@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {LibroDettagliComponent} from './libro-dettagli/libro-dettagli.component';
 
 @Component({
   selector: 'app-root',

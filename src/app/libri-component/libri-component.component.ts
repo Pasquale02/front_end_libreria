@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {LibriService} from '../services/libri.service';
+import {LibroDettagliComponent} from '../libro-dettagli/libro-dettagli.component';
 
 @Component({
   selector: 'app-libri-component',
@@ -8,13 +9,14 @@ import {LibriService} from '../services/libri.service';
 })
 export class LibriComponentComponent implements OnInit {
 
+  @Output() update = new EventEmitter();
+
   constructor(private libriService: LibriService) {
   }
 
   listaLibri = 'Elenco totale libri';
   // tslint:disable-next-line:ban-types
   libri;
-  libroSelected = null;
 
   ngOnInit() {
     this.libriService.getLibri().subscribe(
@@ -24,13 +26,8 @@ export class LibriComponentComponent implements OnInit {
     );
   }
 
-  dettagliLibro(libro) {
-    this.libriService.getLibro(libro.id_libro).subscribe(
-      response => {
-        console.log('response===', response);
-        this.libroSelected = response;
-      }
-    );
+  updateLibro(libro) {
+    this.update.emit(libro);
   }
 
   removeLibro(libro) {
