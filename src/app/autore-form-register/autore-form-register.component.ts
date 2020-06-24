@@ -20,7 +20,7 @@ export class AutoreFormRegisterComponent implements OnInit, OnChanges {
   private id_autore: any;
   private autorePred: AutoreFormRegisterComponent;
 
-  model2: string;
+  model2: object;
   constructor(private autoriService: AutoriService) {
   }
 

@@ -2,6 +2,17 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LibriService} from '../services/libri.service';
 import {AutoriService} from '../services/autori.service';
+import {Observable} from 'rxjs';
+import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
+
+interface Autore {
+  id_autore: number;
+  cognome_autore: string;
+  nome_autore: string;
+  data_nascita_autore: string;
+}
+
+let autori;
 
 @Component({
   selector: 'app-libro-form-register',
@@ -11,10 +22,10 @@ import {AutoriService} from '../services/autori.service';
 export class LibroFormRegisterComponent implements OnInit {
 
   @Input() receivedParentLibro: LibroFormRegisterComponent;
+  @Input() autorePred;
 
   // per l'update
   idReceivedLibro = null;
-  autori;
 
   // per onChanges
   // tslint:disable-next-line:variable-name
@@ -39,8 +50,6 @@ export class LibroFormRegisterComponent implements OnInit {
     return this.libroForm.get('libro.autore');
   }
 
-  autorePred;
-
   libroForm = new FormGroup({
     libro: new FormGroup({
       titolo: new FormControl(
@@ -62,10 +71,12 @@ export class LibroFormRegisterComponent implements OnInit {
     })
   });
 
+  public model: Autore;
+
   ngOnInit() {
     this.autoriService.getAutori().subscribe(
       response => {
-        this.autori = response;
+        autori = response;
       }
     );
   }
@@ -79,7 +90,20 @@ export class LibroFormRegisterComponent implements OnInit {
         prezzo: this.receivedParentLibro.prezzo,
       });
     }
+    // per select typeahead
+    if (this.autorePred) {
+      this.model = this.autorePred;
+    }
   }
+
+  formatter = (autore: Autore) => autore.nome_autore;
+
+  search = (text$: Observable<string>) => text$.pipe(
+    debounceTime(200),
+    distinctUntilChanged(),
+    filter(term => term.length >= 2),
+    map(term => autori.filter(autore => new RegExp(term, 'mi').test(autore.nome_autore)).slice(0, 10))
+  )
 
   inviaDati(data) {
     const libro = data.value.libro;
