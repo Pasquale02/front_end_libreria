@@ -19,7 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LibroDettagliComponent } from './libro-dettagli/libro-dettagli.component';
 import { AutoreDettagliComponent } from './autore-dettagli/autore-dettagli.component';
 import { TypeaheadComponent } from './typeahead/typeahead.component';
-import { DatepickerAdapterComponent } from './datepicker-adapter/datepicker-adapter.component';
+import {CustomDateParserFormatter, DatepickerAdapterComponent} from './datepicker-adapter/datepicker-adapter.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { DatepickerAdapterComponent } from './datepicker-adapter/datepicker-adap
     HttpClientModule,
     NgbModule
   ],
-  providers: [],
+  providers: [CustomDateParserFormatter],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

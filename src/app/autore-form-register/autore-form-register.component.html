@@ -36,23 +36,34 @@
       </div>
     </div>
 
+    <!--    <div class="form-group">-->
+    <!--      <label>Data nascita autore</label>-->
+    <!--      <input-->
+    <!--        formControlName="data_nascita"-->
+    <!--        id="datanascita"-->
+    <!--        type="text"-->
+    <!--        class="form-control">-->
+    <!--      <div *ngIf="data_nascita && data_nascita.touched && data_nascita.invalid" class="alert alert-danger">-->
+    <!--        <div *ngIf="data_nascita.errors.required">Data nascita obbligatoria</div>-->
+    <!--        <div *ngIf="data_nascita.errors.minlength">Minimo {{data_nascita.errors.minlength.requiredLength}}caratteri-->
+    <!--        </div>-->
+    <!--        <div *ngIf="data_nascita.errors.cannotContainSpace">La data di nascita non deve contenere gli spazi</div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+
     <div class="form-group">
       <label for="datanascita">Data nascita autore</label>
-      <input
-        formControlName="data_nascita"
-        id="datanascita"
-        type="text"
-        class="form-control">
-      <div *ngIf="data_nascita && data_nascita.touched && data_nascita.invalid" class="alert alert-danger">
-        <div *ngIf="data_nascita.errors.required">Data nascita obbligatoria</div>
-        <div *ngIf="data_nascita.errors.minlength">Minimo {{data_nascita.errors.minlength.requiredLength}}caratteri
+      <div class="input-group">
+        <input formControlName="data_nascita"
+               id="datanascita" class="form-control" placeholder="yyyy-mm-dd"
+               name="d2" [(ngModel)]="model2" ngbDatepicker #d2="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
         </div>
-        <div *ngIf="data_nascita.errors.cannotContainSpace">La data di nascita non deve contenere gli spazi</div>
       </div>
+      <!-- <app-datepicker-adapter></app-datepicker-adapter>-->
     </div>
 
-    <app-datepicker-adapter></app-datepicker-adapter>
-    <app-typeahead [autorePred]="autorePred"></app-typeahead>
   </div>
   <button class="btn btn-primary" type="submit" [disabled]="!autoreForm.valid">Salva autore</button>
 </form>

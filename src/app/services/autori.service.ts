@@ -24,6 +24,22 @@ export class AutoriService {
 
   postAutore(autore) {
     console.log('[post autore]', autore);
+    const year = autore.data_nascita.year;
+    let month;
+    let day;
+
+    if (autore.data_nascita.month.toString().length < 2) {
+      month = '0' + autore.data_nascita.month;
+    } else {
+      month = autore.data_nascita.month;
+    }
+
+    if (autore.data_nascita.day.toString().length < 2) {
+      day = '0' + autore.data_nascita.day;
+    } else {
+      day = autore.data_nascita.day;
+    }
+    const dataNascita = year + '-' + month + '-' + day + 'T00:00:00.000+00:00';
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -37,7 +53,7 @@ export class AutoriService {
         id_autore: autore.id_autore,
         nome_autore: autore.nome,
         cognome_autore: autore.cognome,
-        data_nascita_autore: autore.data_nascita
+        data_nascita_autore: dataNascita
       };
       return this.httpClient.put<any>('http://localhost:8090/api/autore/update/' + autoreToSend.id_autore,
         autoreToSend, httpOptions);
@@ -45,7 +61,7 @@ export class AutoriService {
       autoreToSend = {
         nome_autore: autore.nome,
         cognome_autore: autore.cognome,
-        data_nascita_autore: autore.data_nascita
+        data_nascita_autore: dataNascita
       };
       return this.httpClient.post<any>('http://localhost:8090/api/inserisciAutore',
         autoreToSend, httpOptions);

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DataNascitaValidator} from '../autori-component/dataNascita.validator';
 import {AutoriService} from '../services/autori.service';
@@ -8,7 +8,7 @@ import {AutoriService} from '../services/autori.service';
   templateUrl: './autore-form-register.component.html',
   styleUrls: ['./autore-form-register.component.css']
 })
-export class AutoreFormRegisterComponent implements OnInit {
+export class AutoreFormRegisterComponent implements OnInit, OnChanges {
 
   @Input() receivedParentAutore: AutoreFormRegisterComponent;
   idReceivedAutore = null;
@@ -18,7 +18,9 @@ export class AutoreFormRegisterComponent implements OnInit {
   private data_nascita_autore: any;
   // tslint:disable-next-line:variable-name
   private id_autore: any;
+  private autorePred: AutoreFormRegisterComponent;
 
+  model2: string;
   constructor(private autoriService: AutoriService) {
   }
 
@@ -33,8 +35,6 @@ export class AutoreFormRegisterComponent implements OnInit {
   get data_nascita() {
     return this.autoreForm.get('autore.data_nascita');
   }
-
-  autorePred;
 
   // esempio di group innestato, è utile quando si hanno molti campi
   autoreForm = new FormGroup({
@@ -64,7 +64,7 @@ export class AutoreFormRegisterComponent implements OnInit {
   });
 
   inviaDati(data) {
-    let autore = data.value.autore;
+    const autore = data.value.autore;
     if (this.idReceivedAutore !== null) {
       autore.id_autore = this.idReceivedAutore;
     }

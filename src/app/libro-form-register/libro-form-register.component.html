@@ -42,14 +42,14 @@
     </div>
 
     <div class="form-group">
-      <label for="autore">Autore</label>
-      <select
-        formControlName="autore"
-        id="autore"
-        name="autore"
-        class="form-control">
-        <option *ngFor="let item of autori" [value]="item.id_autore">{{item.nome_autore}} {{item.cognome_autore}}</option>
-      </select>
+      <app-typeahead [autorePred]="autorePred"></app-typeahead>
+<!--      <select-->
+<!--        formControlName="autore"-->
+<!--        id="autore"-->
+<!--        name="autore"-->
+<!--        class="form-control">-->
+<!--        <option *ngFor="let item of autori" [value]="item.id_autore">{{item.nome_autore}} {{item.cognome_autore}}</option>-->
+<!--      </select>-->
     </div>
 
   </div>

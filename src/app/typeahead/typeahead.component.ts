@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map, filter} from 'rxjs/operators';
 import {AutoriService} from '../services/autori.service';
@@ -17,7 +17,7 @@ let autori;
   templateUrl: './typeahead.component.html',
   styleUrls: ['./typeahead.component.css']
 })
-export class TypeaheadComponent implements OnInit {
+export class TypeaheadComponent implements OnInit, OnChanges {
 
   @Input() autorePred;
 
@@ -47,5 +47,5 @@ export class TypeaheadComponent implements OnInit {
     distinctUntilChanged(),
     filter(term => term.length >= 2),
     map(term => autori.filter(autore => new RegExp(term, 'mi').test(autore.nome_autore)).slice(0, 10))
-  );
+  )
 }

@@ -49,7 +49,8 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
   }
 
   format(date: NgbDateStruct | null): string {
-    return date ? date.day + this.DELIMITER + date.month + this.DELIMITER + date.year : '';
+    // return date ? date.day + this.DELIMITER + date.month + this.DELIMITER + date.year : '';
+    return date ? date.year + this.DELIMITER + date.month + this.DELIMITER + date.day : '';
   }
 }
 
@@ -60,17 +61,13 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
 })
 export class DatepickerAdapterComponent implements OnInit {
 
-  // model1: string;
   model2: string;
 
-  constructor(private ngbCalendar: NgbCalendar, private dateAdapter: NgbDateAdapter<string>) {
+  // tslint:disable-next-line:max-line-length
+  constructor(private ngbCalendar: NgbCalendar, private dateAdapter: NgbDateAdapter<string>, private customDateParserFormatter: CustomDateParserFormatter) {
   }
 
   ngOnInit() {
-  }
-
-  get today() {
-    return this.dateAdapter.toModel(this.ngbCalendar.getToday())!;
   }
 
 }

@@ -39,6 +39,8 @@ export class LibroFormRegisterComponent implements OnInit {
     return this.libroForm.get('libro.autore');
   }
 
+  autorePred;
+
   libroForm = new FormGroup({
     libro: new FormGroup({
       titolo: new FormControl(
