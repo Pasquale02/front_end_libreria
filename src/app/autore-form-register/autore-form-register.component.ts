@@ -20,7 +20,8 @@ export class AutoreFormRegisterComponent implements OnInit, OnChanges {
   private id_autore: any;
   private autorePred: AutoreFormRegisterComponent;
 
-  model2: object;
+  model: object;
+
   constructor(private autoriService: AutoriService) {
   }
 
@@ -81,13 +82,26 @@ export class AutoreFormRegisterComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.receivedParentAutore) {
+      let modelData = {
+        year: undefined,
+        month: undefined,
+        day: undefined
+      };
+
       this.autorePred = this.receivedParentAutore;
       this.idReceivedAutore = this.receivedParentAutore.id_autore;
+      // tslint:disable-next-line:radix
+      modelData.year = parseInt(this.receivedParentAutore.data_nascita_autore.slice(0, 4));
+      // tslint:disable-next-line:radix
+      modelData.month = parseInt(this.receivedParentAutore.data_nascita_autore.slice(5, 7));
+      // tslint:disable-next-line:radix
+      modelData.day = parseInt(this.receivedParentAutore.data_nascita_autore.slice(8, 10));
       this.autoreForm.get('autore').patchValue({
         nome: this.receivedParentAutore.nome_autore,
         cognome: this.receivedParentAutore.cognome_autore,
         data_nascita: this.receivedParentAutore.data_nascita_autore,
       });
+      this.model = modelData;
     }
   }
 }
