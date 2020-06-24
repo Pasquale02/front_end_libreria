@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LibroDettagliComponent } from './libro-dettagli/libro-dettagli.component';
 import { AutoreDettagliComponent } from './autore-dettagli/autore-dettagli.component';
+import { TypeaheadComponent } from './typeahead/typeahead.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AutoreDettagliComponent } from './autore-dettagli/autore-dettagli.compo
     HomeComponent,
     PageNotFoundComponent,
     LibroDettagliComponent,
-    AutoreDettagliComponent
+    AutoreDettagliComponent,
+    TypeaheadComponent
   ],
   imports: [
     BrowserModule,

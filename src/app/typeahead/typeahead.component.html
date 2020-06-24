@@ -1,0 +1,9 @@
+<label for="typeahead-prevent-manual-entry">Seleziona autore:</label>
+<input id="typeahead-prevent-manual-entry"  type="text" class="form-control"
+       [(ngModel)]="model"
+       [ngbTypeahead]="search"
+       [inputFormatter]="formatter"
+       [resultFormatter]="formatter"
+       [editable]='false' />
+<hr>
+<!--<pre>json autore: {{ model | json }}</pre>-->

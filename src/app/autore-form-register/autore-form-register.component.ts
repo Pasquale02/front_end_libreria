@@ -34,6 +34,8 @@ export class AutoreFormRegisterComponent implements OnInit {
     return this.autoreForm.get('autore.data_nascita');
   }
 
+  autorePred;
+
   // esempio di group innestato, è utile quando si hanno molti campi
   autoreForm = new FormGroup({
     autore: new FormGroup({
@@ -79,7 +81,7 @@ export class AutoreFormRegisterComponent implements OnInit {
 
   ngOnChanges() {
     if (this.receivedParentAutore) {
-      console.log('received autore=', this.receivedParentAutore);
+      this.autorePred = this.receivedParentAutore;
       this.idReceivedAutore = this.receivedParentAutore.id_autore;
       this.autoreForm.get('autore').patchValue({
         nome: this.receivedParentAutore.nome_autore,

@@ -70,7 +70,6 @@ export class LibroFormRegisterComponent implements OnInit {
 
   ngOnChanges() {
     if (this.receivedParentLibro) {
-      console.log('received libro', this.receivedParentLibro);
       this.idReceivedLibro = this.receivedParentLibro.id_libro;
       this.libroForm.get('libro').patchValue({
         titolo: this.receivedParentLibro.titolo,

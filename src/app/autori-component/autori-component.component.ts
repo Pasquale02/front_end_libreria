@@ -12,28 +12,16 @@ export class AutoriComponentComponent implements OnInit {
 
   @Output() updateAutoreLibro = new EventEmitter();
 
-  constructor(private autoriService: AutoriService, private libriService: LibriService) {
+  constructor(private autoriService: AutoriService) {
   }
 
   // tslint:disable-next-line:ban-types
   autori;
-  libriByAutore;
-  autoreSelected = null;
 
   ngOnInit() {
     this.autoriService.getAutori().subscribe(
       response => {
         this.autori = response;
-      }
-    );
-  }
-
-  mostraLibri(autore) {
-    this.autoreSelected = autore.nome_autore + ' ' + autore.cognome_autore;
-    this.libriService.getLibriPerAutore(autore.id_autore).subscribe(
-      response => {
-        console.log('libri by idautore retrieved==', response);
-        this.libriByAutore = response;
       }
     );
   }

@@ -50,6 +50,8 @@
         <div *ngIf="data_nascita.errors.cannotContainSpace">La data di nascita non deve contenere gli spazi</div>
       </div>
     </div>
+
+    <app-typeahead [autorePred]="autorePred"></app-typeahead>
   </div>
   <button class="btn btn-primary" type="submit" [disabled]="!autoreForm.valid">Salva autore</button>
 </form>
