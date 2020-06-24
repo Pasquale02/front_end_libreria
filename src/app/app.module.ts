@@ -19,6 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LibroDettagliComponent } from './libro-dettagli/libro-dettagli.component';
 import { AutoreDettagliComponent } from './autore-dettagli/autore-dettagli.component';
 import { TypeaheadComponent } from './typeahead/typeahead.component';
+import { DatepickerAdapterComponent } from './datepicker-adapter/datepicker-adapter.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TypeaheadComponent } from './typeahead/typeahead.component';
     PageNotFoundComponent,
     LibroDettagliComponent,
     AutoreDettagliComponent,
-    TypeaheadComponent
+    TypeaheadComponent,
+    DatepickerAdapterComponent
   ],
   imports: [
     BrowserModule,
